@@ -1,9 +1,9 @@
 #!/bin/bash
 set -e
+source common.sh
 
 name=$1
 source=$2
-location=`pwd`
 fontpath="usr/share/fonts/truetype/$name"
 version="1.0.0"
 
@@ -12,7 +12,6 @@ if [ "$name" = "" ] || [ "$source" = "" ]; then
   exit 1
 fi
 
-mkdir -p debs
 mkdir -p build/$name/installdir/$fontpath
 cp -R $source/* build/$name/installdir/$fontpath/
 
@@ -34,5 +33,3 @@ fpm \
   --after-install update.sh \
   --after-remove update.sh \
   $fontpath
-
-mv *.deb $location/debs
