@@ -7,3 +7,7 @@ fpm() {
   bundle exec fpm "$@"
   mv *.deb $deb_location
 }
+
+alias fpm="bundle exec fpm"
+
+bundle
