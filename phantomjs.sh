@@ -11,6 +11,15 @@ if [ ! -e $phantom ]; then
   curl -q "http://phantomjs.googlecode.com/files/$phantom.tar.bz2" | tar jxv
 fi
 
+cd $phantom
+for f in bin lib; do
+  if [ -e $f ]; then
+    mkdir -p usr
+    mv $f usr/
+  fi
+done
+cd ..
+
 fpm \
   -s dir \
   -t deb \
@@ -18,4 +27,4 @@ fpm \
   -v $version \
   -C $phantom \
   -a $DEB_HOST_ARCH_CPU \
-  bin lib
+  usr/bin usr/lib
