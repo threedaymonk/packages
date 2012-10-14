@@ -3,8 +3,8 @@ set -e
 source common.sh
 
 name="phantomjs"
-version=1.6.1
-phantom="$name-$version-linux-$DEB_HOST_GNU_CPU-dynamic"
+version=1.7.0
+phantom="$name-$version-linux-$DEB_HOST_GNU_CPU"
 
 cd build
 if [ ! -e $phantom ]; then
@@ -27,4 +27,4 @@ fpm \
   -v $version \
   -C $phantom \
   -a $DEB_HOST_ARCH_CPU \
-  usr/bin usr/lib
+  usr/bin
