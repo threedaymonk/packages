@@ -3,7 +3,7 @@ set -e
 source common.sh
 
 name="phantomjs"
-version=1.7.0
+version=1.8.1
 phantom="$name-$version-linux-$DEB_HOST_GNU_CPU"
 
 cd build
