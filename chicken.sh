@@ -10,7 +10,7 @@ build_dir="$name-$version"
 
 cd build
 if [ ! -e $build_dir ]; then
-  curl -q "$tar_url" | tar zxv
+  curl --silent --location "$tar_url" | tar zxv
 fi
 cd $build_dir
 
