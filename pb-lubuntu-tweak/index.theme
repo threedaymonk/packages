@@ -1,0 +1,18 @@
+[Icon Theme]
+Name=PB Lubuntu Tweaked
+Comment=Just an icon theme for Lubuntu
+Inherits=elementaryLubuntu
+Example=directory-x-normal
+
+# Directory list
+Directories=apps,panel
+
+[apps]
+Size=24
+Context=Applications
+Type=Scalable
+
+[panel]
+Size=24
+Context=Status
+Type=Scalable
