@@ -11,3 +11,9 @@ fpm() {
 alias fpm="bundle exec fpm"
 
 bundle
+
+if [ "$DEB_HOST_ARCH" = "amd64" ]; then
+  bits=64
+else
+  bits=32
+fi
