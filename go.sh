@@ -3,7 +3,7 @@ set -e
 source common.sh
 
 name="golang"
-version="1.0.3"
+version="1.2"
 tar_url="https://go.googlecode.com/files/go${version}.linux-${DEB_HOST_ARCH}.tar.gz"
 build_dir="$name-$version"
 
