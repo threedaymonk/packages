@@ -3,3 +3,4 @@
 /debs
 /fonts
 Gemfile.lock
+*.exe
