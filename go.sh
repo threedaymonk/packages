@@ -11,8 +11,12 @@ cd build
 if [ ! -e $build_dir ]; then
   curl -q "$tar_url" | tar zxv
   mkdir -p $build_dir/usr/local
-  mv go $build_dir/usr/local
+  mv go $build_dir/usr/local/
 fi
+mkdir -p $build_dir/usr/local/bin
+for f in $build_dir/usr/local/bin/*; do
+  ln -sf /usr/local/go/bin/$(basename $f) $build_dir/usr/local/bin/
+done
 
 fpm \
   -s dir \
