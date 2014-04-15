@@ -6,6 +6,7 @@ name="golang"
 version="1.2.1"
 tar_url="https://go.googlecode.com/files/go${version}.linux-${DEB_HOST_ARCH}.tar.gz"
 build_dir="$name-$version"
+epoch=2
 
 cd build
 if [ ! -e $build_dir ]; then
@@ -22,7 +23,7 @@ fpm \
   -s dir \
   -t deb \
   -n $name \
-  -v $version \
+  -v $epoch:$version \
   -C $build_dir \
   -d build-essential \
   -a $DEB_HOST_ARCH_CPU \
