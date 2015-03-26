@@ -1,11 +1,20 @@
-eval `dpkg-architecture`
-deb_location=`pwd`/debs
+eval $(dpkg-architecture)
+deb_location="$(pwd)/debs"
 
 mkdir -p debs build
 
+move_debs() {
+  mv *.deb "$deb_location"
+}
+
 fpm() {
   bundle exec fpm "$@"
-  mv *.deb $deb_location
+  move_debs
+}
+
+checkinstall() {
+  sudo checkinstall --install=no --fstrans -y "$@"
+  move_debs
 }
 
 alias fpm="bundle exec fpm"

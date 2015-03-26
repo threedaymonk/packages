@@ -16,13 +16,9 @@ cd $build_dir
 
 make PLATFORM=linux PREFIX=/usr
 
-sudo checkinstall \
+checkinstall \
   --pkgname $name \
   --pkgversion $version \
   --pkglicense BSD \
   --requires libc6 \
-  --install=no \
-  -y \
   make PLATFORM=linux PREFIX=/usr install
-
-mv *.deb ../../debs/

@@ -27,7 +27,7 @@ cd $build_dir
 ./configure --prefix=/usr
 make
 
-sudo checkinstall \
+checkinstall \
   --pkgname $name \
   --pkgversion $version \
   --pkglicense GPL3 \
@@ -40,8 +40,4 @@ sudo checkinstall \
   --requires liblcms1 \
   --requires libpeas-1.0-0 \
   --requires libraw5 \
-  --install=no \
-  -y \
   make install
-
-mv *.deb ../../debs/
