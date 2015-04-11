@@ -19,7 +19,7 @@ checkinstall() {
 
 alias fpm="bundle exec fpm"
 
-bundle
+bundle check || bundle install
 
 if [ "$DEB_HOST_ARCH" = "amd64" ]; then
   bits=64
