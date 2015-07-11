@@ -8,6 +8,19 @@ os=linux64
 lang=en-GB
 download_link="https://download.mozilla.org/?product=$name-$version&os=$os&lang=$lang"
 
+case "$DEB_BUILD_ARCH" in
+  amd64)
+    os=linux64
+    ;;
+  i386)
+    os=linux
+    ;;
+  *)
+    echo "Unsupported architecture $DEB_BUILD_ARCH"
+    exit 1
+esac
+
+
 cd build
 mkdir -p "$name-$version/opt"
 
@@ -50,5 +63,5 @@ fpm \
   -n $name \
   -v 1:$version \
   -C $name-$version \
-  -a $DEB_HOST_ARCH_CPU \
+  -a "$DEB_BUILD_ARCH" \
   usr opt
