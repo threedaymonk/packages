@@ -13,7 +13,7 @@ fpm() {
 }
 
 checkinstall() {
-  sudo checkinstall --install=no --fstrans -y "$@"
+  sudo checkinstall --install=no -y "$@"
   move_debs
 }
 
