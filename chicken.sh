@@ -3,8 +3,9 @@ set -e
 source common.sh
 
 name="chicken"
-version="4.8.0.3"
-release="4.8.0"
+release=4.9.0
+patchlevel=1
+version="${release}.${patchlevel}"
 tar_url="http://code.call-cc.org/releases/$release/$name-$version.tar.gz"
 build_dir="$name-$version"
 
