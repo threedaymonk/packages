@@ -3,7 +3,7 @@ set -e
 source common.sh
 
 name=thunderbird
-version=38.1.0
+version=38.2.0
 os=linux64
 lang=en-GB
 download_link="https://download.mozilla.org/?product=$name-$version&os=$os&lang=$lang"
