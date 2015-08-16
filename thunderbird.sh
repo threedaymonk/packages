@@ -7,6 +7,7 @@ version=38.2.0
 os=linux64
 lang=en-GB
 download_link="https://download.mozilla.org/?product=$name-$version&os=$os&lang=$lang"
+icon_link="https://assets.mozilla.org/file/asset/273/original/attachment"
 
 case "$DEB_BUILD_ARCH" in
   amd64)
@@ -32,7 +33,7 @@ if [ ! -e $name ]; then
 fi
 popd
 
-mkdir -p usr/bin usr/share/applications
+mkdir -p usr/bin usr/share/applications usr/share/pixmaps
 pushd usr/bin
 ln -sf /opt/thunderbird/thunderbird thunderbird
 popd
@@ -54,6 +55,8 @@ MimeType=x-scheme-handler/mailto;application/x-xpinstall;
 StartupNotify=true
 Actions=Compose;Contacts
 END
+
+curl -L -o usr/share/pixmaps/thunderbird.png "$icon_link"
 
 popd
 
