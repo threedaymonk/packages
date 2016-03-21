@@ -3,12 +3,13 @@ set -e
 source common.sh
 
 name="phantomjs"
-version=1.9.1
+version=1.9.7
 phantom="$name-$version-linux-$DEB_HOST_GNU_CPU"
+url="https://bitbucket.org/ariya/phantomjs/downloads/$phantom.tar.bz2"
 
 cd build
 if [ ! -e $phantom ]; then
-  curl -q "http://phantomjs.googlecode.com/files/$phantom.tar.bz2" | tar jxv
+  curl -L "$url" | tar jxv
 fi
 
 cd $phantom
